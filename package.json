@@ -1,0 +1,21 @@
+{
+	"name" 			: "Sannas Härliga Blogg",
+	"description" 	: "blommor, katter, och sanna!",
+	"version"		: "1",
+	"private"		: "true",
+	"scripts"		: {
+			"start"		: "node app.js"
+	},
+	"dependencies"	: {
+			"express"		: "4.x",
+			"ejs"			: "*",
+			"jquery"		: "1.x",
+			"backbone"		: "1.1.2",
+			"sequelize"		: "~1.7.0",
+			"mysql"			: "~2.1.1",
+			"body-parser" 	: "*"
+	},
+	"devDependencies": {
+			"lodash"	: "~2.4.1"
+	}
+}
