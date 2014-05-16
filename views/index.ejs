@@ -2,36 +2,44 @@
 <html>
   <head>
     <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900' rel='stylesheet' type='text/css'>
   </head>
   <body>
+    <div id="wrapper">
     <div id="menu">
-      <a href="#posts">Sannas Blogg</a> 
-      <a href="#posts/new">Lägg till nytt inlägg</a>
+      <h1><a href="#posts">Sannas Blogg</a></h1>
+      <a href="#posts/new" class="post-button">Lägg till nytt inlägg</a>
     </div>
     <div id="container">
     </div>
     <script id="posts-template" type="text/x-handlebars-template">
       {{#each posts}}
       <div class="post">
-        <h1>{{title}}</h1>
-        <small>{{created_at}}</small>
-        <p>{{content}}</p>
-        <a href="#/posts/{{id}}" id="read">Läs mer</a>
-        </br>
-        <a href="#posts/edit/{{id}}" id="edit">Ändra</a> 
-        <a href="#posts/remove/{{id}}" id="remove">Ta bort</a>
+        <div class="entry-title">{{title}}</div>
+        <div class="entry-date">{{created_at}}</div>
+        <div class="update">
+          <a href="#posts/edit/{{id}}" id="edit">✎</a> 
+        </div>
+        <div class="remove">
+          <a href="#posts/remove/{{id}}" id="remove">✗</a>
+        </div>
+        <div class="entry-body">{{content}}</div>
+        <div class="entry-meta">
+          <a href="#/posts/{{id}}" id="read">Läs mer »</a>
+        </div>
       </div>
       <hr>
       {{/each}}
     </script>
     <script id="post-template" type="text/x-handlebars-template">
       <div class="post" data-id="{{id}}">
-        <h1>{{0.title}}</h1>
+        <div class="entry-title">{{0.title}}</div>
         <small>{{0.created_at}}</small>
         <p>{{0.content}}</p>
         </br>
-        <a href="#posts/edit/{{id}}" id="edit">Edit</a> | 
-        <a href="#posts/remove/{{id}}" id="remove">Remove</a>
+        <a href="#posts/edit/{{id}}" id="edit">✎ Ändra</a> 
+        <a href="#posts/remove/{{id}}" id="remove">✗ Ta bort</a>
       </div>
     </script>
     <script id="post-create-template" type="text/x-handlebars-template">
@@ -39,15 +47,15 @@
         <form method="post">
           <div class="error"></div>
           <p>
-            <label for="title">Titel</label></br>
+            <label for="title" class="form-title">Rubrik</label></br>
             <input type="text" id="title" name="title">
           </p>
           <p>
-            <label for="content">Innehåll</label></br>
-            <textarea id="content" name="content" cols="30" rows="10"></textarea>
+            <label for="content" class="form-title">Inlägg</label></br>
+            <textarea id="content" name="content" cols="70" rows="10"></textarea>
           </p>
           <p>
-            <input type="submit" id="addPost" value="Create">
+            <input type="submit" id="addPost" value="Publicera" class="buttons">
           </p>
         </form>
       </div>
@@ -57,19 +65,20 @@
       <form method="post" id="{{id}}">
         <div class="error"></div>
         <p>
-          <label for="title">Titel</label></br>
+          <label for="title" class="form-title">Rubrik</label></br>
           <input type="text" id="title" name="title" value="{{0.title}}">
         </p>
         <p>
-          <label for="content">Innehåll</label></br>
+          <label for="content" class="form-title">Inlägg</label></br>
           <textarea id="content" name="content" cols="30" rows="10">{{0.content}}</textarea>
         </p>
         <p>
-          <input type="submit" id="addPost" value="Edit">
+          <input type="submit" id="addPost" value="Uppdatera" class="buttons">
         </p>
       </form>
     </div>
     </script>
+  </div>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/handlebars-v1.3.0.js"></script>
     <script src="/js/underscore-min.js"></script>

@@ -1,13 +1,11 @@
-var express = require("express");
-
-var app 	= express();
-
-var routes 	= require("./routes");
-var posts 	= require("./routes/post");
-var http 	= require("http");
-var path 	= require("path");
-var bodyParser = require("body-parser");
-var db		= require("./models");
+var express 	= require("express");
+var app 		= express();
+var routes 		= require("./routes");
+var posts 		= require("./routes/post");
+var http 		= require("http");
+var path 		= require("path");
+var bodyParser 	= require("body-parser");
+var db			= require("./models");
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
